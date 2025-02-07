@@ -1,4 +1,5 @@
 // import { useFetchPosts } from "@/hooks/useFetchPosts";
+import Seo from "@/components/content/Seo";
 import { Button } from "@/components/ui/button";
 import { fetchPosts } from "@/lib/fetchPost";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
@@ -23,16 +24,22 @@ const Posts = () => {
 
   if (isLoading) return <div>Loading ...</div>;
   if (isError) return <div>{error.message} </div>;
+
   return (
     <div className="my-20">
-      {data?.data.map((item: IPosts) => (
-        <div key={item.id} className="bg-gray-100 p-10 mb-5 mx-[5%]">
-          <Link to={`/post/${item.id}`}>
-            <h2 className="text-3xl">{item.title}</h2>
-            <p className="text-1.5xl">{item.body}</p>
-          </Link>
-        </div>
-      ))}
+      <Seo title="Posting Page" description="Remlex Technologies Post page" />
+
+      {data?.data.map((item: IPosts) => {
+        const { id, title, body } = item;
+        return (
+          <div key={item.id} className="bg-gray-100 p-10 mb-5 mx-[5%]">
+            <Link to={`/post/${id}`}>
+              <h2 className="text-3xl">{title}</h2>
+              <p className="text-1.5xl">{body}</p>
+            </Link>
+          </div>
+        );
+      })}
       <div className="mx-[5%] flex p-5">
         <Button
           onClick={() => setPage((prev) => prev - 1)}

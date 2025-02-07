@@ -1,10 +1,15 @@
-import { AboutSection } from "@/components/ui/content/AboutSection";
-import { Hero } from "@/components/ui/content/Hero";
-import { Feature } from "@/components/ui/content/Section2";
+import { AboutSection } from "@/components/content/AboutSection";
+import { Hero } from "@/components/content/Hero";
+import { Feature } from "@/components/content/Section2";
+import Seo from "@/components/content/Seo";
 
 const HomePage = () => {
   return (
     <>
+      <Seo
+        title="Welcome to Home Page"
+        description="Remlex Technologies IT Solutions"
+      />
       <Hero />
       <AboutSection />
       <Feature />

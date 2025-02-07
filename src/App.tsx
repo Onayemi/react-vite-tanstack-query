@@ -2,11 +2,12 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/home";
 import AboutPage from "./pages/about";
-import { Header } from "./components/ui/content/Header";
-import { Footer } from "./components/ui/content/Footer";
+import { Header } from "./components/content/Header";
+import { Footer } from "./components/content/Footer";
 import { Contact } from "./pages/contact";
 import Posts from "./pages/posts";
 import Post from "./pages/posts/id";
+import Dashboard from "./app/dashboard/page";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/posts" element={<Posts />} />
         <Route path="/post/:id" element={<Post />} />
+        <Route path="/admin/dashboard" element={<Dashboard />} />
       </Routes>
       <Footer />
     </>
